@@ -13,7 +13,6 @@ def clean_cache():
   if os.path.exists(path):
     shutil.rmtree(path)
   os.mkdir(path)
-  return path
 
 def cache_zip(zip_file, cache_dir_path):
   with ZipFile(zip_file, 'r') as zip:
@@ -38,7 +37,7 @@ def find_password(file_list):
 
 if __name__ == "__main__":
   clean_cache()
-  cache_zip(zip_file = os.path.join(parent_dir, "data.zip"), cache_dir_path=clean_cache())
+  cache_zip(zip_file = os.path.join(parent_dir, "data.zip"), cache_dir_path=path)
   print(find_password(cached_files()))
 
 
